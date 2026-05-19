@@ -17,4 +17,14 @@ public class BankAccount {
             this.balance = balance;
         }
     }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        if (ownerName != "") {
+            this.ownerName = ownerName;
+        }
+    }
 }
