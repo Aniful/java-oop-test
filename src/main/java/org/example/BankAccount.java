@@ -19,12 +19,6 @@ public class BankAccount {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        if (balance >= 0) {
-            this.balance = balance;
-        }
-    }
-
     public String getOwnerName() {
         return ownerName;
     }
@@ -47,5 +41,13 @@ public class BankAccount {
 
     public void getInfo() {
          System.out.printf("Имя: %s, Номер счета: %s, Баланс: %s", ownerName, accountNumber, balance);
+    }
+
+    public void deposit(double amout) {
+        balance += amout;
+    }
+
+    public void withraw (double amout) {
+        balance -= amout;
     }
 }
