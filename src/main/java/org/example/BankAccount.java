@@ -40,14 +40,21 @@ public class BankAccount {
     }
 
     public void getInfo() {
-         System.out.printf("Имя: %s, Номер счета: %s, Баланс: %s", ownerName, accountNumber, balance);
+         System.out.printf("Имя: %s, Номер счета: %s, Баланс: %s\n", ownerName, accountNumber, balance);
     }
 
     public void deposit(double amout) {
         balance += amout;
+        System.out.println("Текущий баланс: " + getBalance());
     }
 
-    public void withraw (double amout) {
-        balance -= amout;
+    public void withraw(double amout) {
+        if (balance - amout > 0) {
+            balance -= amout;
+        } else {
+            System.out.println("Ошибка. Сумма на счету после снятия будет отрицательной.");
+        }
+
+        System.out.println("Текущий баланс: " + getBalance());
     }
 }

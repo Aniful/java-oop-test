@@ -7,6 +7,7 @@ public class Main {
 
         BankAccount firstUser = new BankAccount("009928283333", 900.0, "Filip G.");
         firstUser.getInfo();
+        firstUser.withraw(1000.0);
 
     }
 }
