@@ -48,13 +48,24 @@ public class BankAccount {
         System.out.println("Текущий баланс: " + getBalance());
     }
 
-    public void withraw(double amout) {
-        if (balance - amout > 0) {
-            balance -= amout;
+    public void withraw(double amount) throws Exception {
+
+        if (amount < balance) {
+            balance -= amount;
+        } else {
+            throw new InsufficientFundsException("Ошибка. Сумма на счету после снятия будет отрицательной.");
+        }
+
+        System.out.println("Текущий баланс: " + getBalance());
+    }
+
+    public void withraw(double amount, String reason) {
+        if (balance - amount > 0) {
+            balance -= amount;
         } else {
             System.out.println("Ошибка. Сумма на счету после снятия будет отрицательной.");
         }
 
-        System.out.println("Текущий баланс: " + getBalance());
+        System.out.println("Текущий баланс: " + getBalance() + ". " + reason);
     }
 }
