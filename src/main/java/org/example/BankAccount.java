@@ -48,7 +48,7 @@ public class BankAccount {
         System.out.println("Текущий баланс: " + getBalance());
     }
 
-    public void withraw(double amount) throws Exception {
+    public void withraw(double amount) throws InsufficientFundsException {
 
         if (amount < balance) {
             balance -= amount;

@@ -13,4 +13,8 @@ public class Customer extends User {
 
         return "Имя: " + getName() + ", Номер счета: " + bankAccount.getAccountNumber();
     }
+
+    public BankAccount getBankAccount() {
+        return bankAccount;
+    }
 }

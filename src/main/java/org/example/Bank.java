@@ -24,4 +24,24 @@ public class Bank {
             throw new CustomerNotFoundException("Клиент еще не добавлен в базу данных.");
         }
     }
+
+    public void transferMoney(String fromAccountNumber, String toAccountNumber, double amount)
+            throws InsufficientFundsException, AccountNotFoundException {
+
+        Customer senderCustomer = findCustomerByAccountNumber(fromAccountNumber);
+        Customer recipientCustomer = findCustomerByAccountNumber(toAccountNumber);
+
+        senderCustomer.getBankAccount().withraw(amount);
+        recipientCustomer.getBankAccount().deposit(amount);
+    }
+
+
+    private Customer findCustomerByAccountNumber(String accountNumber) throws AccountNotFoundException {
+        for (Customer customer : arrayListCustomer) {
+            if (customer.getBankAccount().getAccountNumber() == accountNumber) {
+                return customer;
+            }
+        }
+        throw new AccountNotFoundException("Клиента с таким номером аккаунта не существует.");
+    }
 }
